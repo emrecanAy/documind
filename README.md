@@ -8,6 +8,8 @@
 ![React](https://img.shields.io/badge/React-19-61DAFB)
 ![Qdrant](https://img.shields.io/badge/Vector_DB-Qdrant-DC244C)
 
+![DocuMind chat: a grounded answer with inline citation and the source passages it used](docs/screenshots/chat.jpg)
+
 ## The problem
 
 Every company has its knowledge scattered across PDFs, Word files, wikis and HTML pages — HR policies, security rules,
@@ -35,6 +37,17 @@ DocuMind solves the three things an enterprise knowledge assistant must get righ
 - 🔌 **Provider-agnostic** via `Microsoft.Extensions.AI`: Ollama (default, free & local), OpenAI (or any OpenAI-compatible endpoint), Anthropic Claude.
 - 📊 **Evaluation & observability** — evaluation runs from the UI or CLI (CI quality gate), usage dashboard, 👍/👎 feedback, OpenTelemetry traces & metrics (GenAI semantic conventions) in the Aspire dashboard.
 - 🔐 **Security** — JWT access tokens + rotating refresh tokens (hashed at rest, reuse detection), lockout, rate limiting, RFC 9457 problem details, path-traversal-safe storage.
+
+## Screenshots
+
+| | |
+|---|---|
+| ![Sign in](docs/screenshots/login.jpg) | ![Document library](docs/screenshots/documents.jpg) |
+| **Sign in** — JWT auth, demo account in development | **Documents** — upload, live ingestion status, re-index |
+| ![Chunk viewer](docs/screenshots/chunks.jpg) | ![Quality and usage](docs/screenshots/evaluation.jpg) |
+| **Chunk viewer** — how a document was split, with token counts and section paths | **Quality & Usage** — evaluation runs (hit rate, recall, MRR) and token / cost tracking |
+| ![Workspace settings](docs/screenshots/settings.jpg) | ![Chat](docs/screenshots/chat.jpg) |
+| **Settings** — chunking strategy, Top-K, hybrid search, reranker, members and roles | **Ask** — streamed answer, pipeline steps, citations and sources panel |
 
 ## Architecture
 

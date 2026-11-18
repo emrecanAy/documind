@@ -161,12 +161,16 @@ function parseSnapshot(snapshot: string): Record<string, unknown> | null {
   }
 }
 
+// Older runs stored the enum as its numeric value.
+const strategies = ['FixedToken', 'Recursive', 'Semantic']
+const strategyName = (value: unknown) => (typeof value === 'number' ? (strategies[value] ?? String(value)) : String(value))
+
 function ConfigBadges({ snapshot }: { snapshot: string }) {
   const s = parseSnapshot(snapshot)
   if (!s) return null
   return (
     <div className="flex max-w-xs flex-wrap gap-1">
-      <Badge tone="brand">{String(s.ChunkingStrategy)}</Badge>
+      <Badge tone="brand">{strategyName(s.ChunkingStrategy)}</Badge>
       <Badge>{String(s.ChunkSize)}/{String(s.ChunkOverlap)}</Badge>
       <Badge>k={String(s.TopK)}</Badge>
       {Boolean(s.UseHybridSearch) && <Badge tone="blue">hybrid</Badge>}
