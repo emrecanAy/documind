@@ -1,0 +1,65 @@
+{
+  "name": "acme-golden-v1",
+  "items": [
+    {
+      "question": "How many days of annual leave do full-time employees get?",
+      "expectedDocuments": ["employee-handbook.md"],
+      "referenceAnswer": "20 working days per year, increasing to 25 after 5 years of service."
+    },
+    {
+      "question": "How many unused vacation days can I carry over and until when?",
+      "expectedDocuments": ["employee-handbook.md"],
+      "referenceAnswer": "Up to 5 days, which must be used before March 31."
+    },
+    {
+      "question": "What is the minimum password length?",
+      "expectedDocuments": ["information-security-policy.md"],
+      "referenceAnswer": "14 characters."
+    },
+    {
+      "question": "How quickly must I report a lost laptop or phishing email?",
+      "expectedDocuments": ["information-security-policy.md"],
+      "referenceAnswer": "Within 1 hour to security@acme.example or #security-incidents."
+    },
+    {
+      "question": "Can I paste customer contracts into ChatGPT?",
+      "expectedDocuments": ["information-security-policy.md"],
+      "referenceAnswer": "No. Confidential data must never be pasted into public AI tools; use DocuMind."
+    },
+    {
+      "question": "What is the hotel limit per night in London?",
+      "expectedDocuments": ["travel-and-expense-policy.html"],
+      "referenceAnswer": "250 EUR per night for US / UK."
+    },
+    {
+      "question": "When do I need VP approval for flights?",
+      "expectedDocuments": ["travel-and-expense-policy.html"],
+      "referenceAnswer": "Business class requires VP approval."
+    },
+    {
+      "question": "What service credit does an Enterprise customer get if uptime is 98.5%?",
+      "expectedDocuments": ["product-faq.txt"],
+      "referenceAnswer": "25% of the monthly fee (uptime below 99.0%)."
+    },
+    {
+      "question": "Which regions can Enterprise customers store data in?",
+      "expectedDocuments": ["product-faq.txt"],
+      "referenceAnswer": "EU (Frankfurt) by default, plus US (Virginia) or Turkey (Istanbul)."
+    },
+    {
+      "question": "Yurt dışından yılda kaç gün çalışabilirim?",
+      "expectedDocuments": ["uzaktan-calisma-politikasi.md"],
+      "referenceAnswer": "Yılda en fazla 30 takvim günü."
+    },
+    {
+      "question": "Ev internet desteği ne kadar?",
+      "expectedDocuments": ["uzaktan-calisma-politikasi.md"],
+      "referenceAnswer": "Aylık 750 TL."
+    },
+    {
+      "question": "What equipment and allowances do remote workers get?",
+      "expectedDocuments": ["employee-handbook.md", "uzaktan-calisma-politikasi.md"],
+      "referenceAnswer": "Handbook: 600 EUR home office stipend and 30 EUR monthly internet. Turkey: laptop, monitor, headset, 750 TL internet, 5,000 TL chair."
+    }
+  ]
+}

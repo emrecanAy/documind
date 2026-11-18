@@ -1,0 +1,29 @@
+Acme Cloud Platform - Customer FAQ
+====================================
+
+What plans does Acme Cloud offer?
+Acme Cloud has three plans. Starter costs 29 USD per month and includes 3 projects and 10 GB storage.
+Business costs 99 USD per month and includes unlimited projects, 500 GB storage and SSO.
+Enterprise is priced per contract and adds a 99.95% uptime SLA, dedicated support and data residency options.
+
+What is the uptime SLA?
+Enterprise customers get a 99.95% monthly uptime SLA. If uptime falls below the SLA, customers receive service
+credits: 10% of the monthly fee below 99.95%, 25% below 99.0%, and 50% below 95.0%.
+Starter and Business plans have no contractual SLA, but historical uptime is above 99.9%.
+
+How do I contact support?
+Starter: email support with a target first response within 2 business days.
+Business: email and chat support, first response within 8 business hours.
+Enterprise: 24/7 phone support, first response within 1 hour for Severity 1 incidents.
+
+Where is customer data stored?
+By default data is stored in the EU (Frankfurt, eu-central-1). Enterprise customers can choose the US (Virginia)
+or Turkey (Istanbul) regions. Backups are encrypted with AES-256 and kept for 35 days.
+
+Can I export my data?
+Yes. Every plan includes a full data export in JSON or CSV from Settings > Data > Export. Enterprise customers can
+also schedule automatic exports to their own S3 bucket.
+
+How do I cancel my subscription?
+Starter and Business subscriptions can be cancelled at any time from the billing page; access continues until the
+end of the paid period. Annual plans are refunded pro rata only within the first 30 days.

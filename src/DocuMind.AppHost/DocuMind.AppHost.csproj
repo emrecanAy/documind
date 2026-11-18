@@ -1,0 +1,18 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.6.5">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <UserSecretsId>documind-apphost</UserSecretsId>
+    <NoWarn>$(NoWarn);ASPIRE010</NoWarn>
+    <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);ASPIRE010</MSBuildWarningsAsMessages>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DocuMind.Api\DocuMind.Api.csproj" />
+    <ProjectReference Include="..\DocuMind.Worker\DocuMind.Worker.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
+    <PackageReference Include="Aspire.Hosting.Qdrant" />
+    <PackageReference Include="Aspire.Hosting.JavaScript" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.Ollama" />
+  </ItemGroup>
+</Project>

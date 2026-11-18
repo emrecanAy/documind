@@ -1,0 +1,63 @@
+# Infrastructure for running DocuMind WITHOUT Aspire.
+#   docker compose up -d
+#   dotnet run --project src/DocuMind.Api
+#   dotnet run --project src/DocuMind.Worker
+#   cd web && npm install && npm run dev
+# Traces / metrics / logs: http://localhost:18888 (Aspire dashboard, standalone)
+
+name: documind
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: documind
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d documind"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  qdrant:
+    image: qdrant/qdrant:v1.17.0
+    ports:
+      - "6333:6333" # REST + web UI at http://localhost:6333/dashboard
+      - "6334:6334" # gRPC (used by the .NET client)
+    volumes:
+      - qdrant-data:/qdrant/storage
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    # GPU: docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+
+  ollama-models:
+    image: ollama/ollama:latest
+    depends_on:
+      - ollama
+    environment:
+      OLLAMA_HOST: ollama:11434
+    entrypoint: ["/bin/sh", "-c", "ollama pull nomic-embed-text && ollama pull llama3.2:3b"]
+    restart: "no"
+
+  aspire-dashboard:
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:13.6
+    environment:
+      ASPIRE_DASHBOARD_UNSECURED_ALLOW_ANONYMOUS: "true"
+    ports:
+      - "18888:18888" # UI
+      - "4317:18889"  # OTLP gRPC — set OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317 on Api/Worker
+
+volumes:
+  postgres-data:
+  qdrant-data:
+  ollama-data:
