@@ -22,7 +22,7 @@ jobs:
         run: |
           dotnet test --no-build -c Release --project tests/DocuMind.UnitTests
           dotnet test --no-build -c Release --project tests/DocuMind.ArchitectureTests
-      - name: Integration tests (Testcontainers: Postgres + Qdrant)
+      - name: "Integration tests (Testcontainers: Postgres + Qdrant)"
         run: dotnet test --no-build -c Release --project tests/DocuMind.IntegrationTests
 
   frontend:
